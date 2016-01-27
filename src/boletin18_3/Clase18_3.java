@@ -6,6 +6,8 @@ public class Clase18_3 {
     int numElementos=pedirElementos();
     int []notasModulo =new int[numElementos];
     String []nomes = new String [numElementos];
+    String auxn;
+    int aux;
     
     public int pedirElementos(){
         return Integer.parseInt(JOptionPane.showInputDialog("Introduce el numero de alumnos") );
@@ -59,7 +61,7 @@ public class Clase18_3 {
           }
         }
         System.out.println("numero de suspensos  "+suspensos);
-        System.out.println("numero de aprobados  "+aprobados);
+        System.out.println("numero de aprobados  "+aprobados +" \n");
     }
     public void visualObj(){
         int x=0;
@@ -71,6 +73,45 @@ public class Clase18_3 {
                 JOptionPane.showMessageDialog(null, "Introduce una numero entre 1 y "+ numElementos);
         } while (x<0||x>numElementos);
                 
-        System.out.println("La nota del alumno es : "+notasModulo[x-1] );
+        System.out.println("La nota del alumno "+ x +" es : "+notasModulo[x-1] + "\n");
     }
+    public void listaAprobados(){
+        String aprobadoslist="";
+        for (int i=0;i<numElementos;i++){
+            if (notasModulo[i]>=5){
+                aprobadoslist+=nomes[i]+"  aprobo con un : "+notasModulo[i]+"\n";
+            }
+        }
+        System.out.println(aprobadoslist);
+    }
+    public void mentomay(){
+           for (int i=0;i<numElementos-1;i++){
+               for (int j=i+1;j<numElementos;j++)
+                   if (notasModulo[i]>notasModulo[j]){
+                       aux=notasModulo[i];
+                       notasModulo[i]=notasModulo[j];
+                       notasModulo[j]=aux;
+                       auxn=nomes[i];
+                       nomes[i]=nomes[j];
+                       nomes[j]=auxn;                       
+                   }
+                  }
+           System.out.println("");
+    }
+    public void visualizarOrden(){
+        
+        for (int i=0;i<numElementos;i++){
+            System.out.println("Alumno "+ nomes[i] + "  nota : " +notasModulo[i]);
+        }
+    }
+    public void consultarNota(){
+           String nomBusqueda=JOptionPane.showInputDialog("introduce el nombre del alumno a buscar");
+           boolean atopado=false;
+           for (int i=0;i<numElementos;i++){
+               if ((nomes[i].compareToIgnoreCase(nomBusqueda)==0)){
+                   System.out.println("el alumno de nombre "+ nomBusqueda + "  ha sacado un "+notasModulo[i]);
+                   atopado=true;
+               }
+           }
+       }
 }

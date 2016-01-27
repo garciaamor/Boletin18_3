@@ -9,6 +9,10 @@ public class Boletin18_3 {
         obxMat.notaMedia();
         obxMat.notaAlta();
         obxMat.visualObj();
+        obxMat.listaAprobados();
+        obxMat.mentomay();
+        obxMat.visualizarOrden();
+        obxMat.consultarNota();
     }
     
 }
